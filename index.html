@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paper Demo – Audio Results</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>QD-MUSE: A Query-Driven Diffusion Model for Unconstrained Music Separation</h1>
+    <p><i> Nour Abdelmoneim, Keith Ross, Gus Xia </i></p>
+    <p><strong>Abstract:</strong> Music source separation (MSS) aims to isolate individual instruments from complex musical mixtures and is essential for tasks such as remixing, transcription, and audio analysis. Traditional approaches typically rely on separating a fixed set of stems using deterministic masking methods, limiting their ability to generalize to real-world mixtures with diverse instruments. In this paper, we propose QD-MUSE, a query-driven diffusion model that enables unconstrained music source separation guided by user-provided queries. By unifying timbre and melody queries within a single diffusion-based generative framework and leveraging self-supervised audio representations, our model flexibly extracts sources from arbitrary instrument combinations without relying on predefined categories. We validate QD-MUSE on the Slakh2100 dataset, demonstrating its ability to achieve high separation quality across a wide range of instruments, marking a step toward general-purpose, user-guided MSS.</p>
+
+    <figure class="arch-figure">
+        <img src="assets/framework.pdf" alt="Model Architecture" class="arch-img">
+        <figcaption>Figure 1: QD-MUSE Architecture. The model receives a noisy source input and predicts a denoised
+        target estimate, which is combined with scaling factors <i>c<sub>out</sub></i>(σ) and <i>c<sub>skip</sub></i>(σ) before computing the final score-matching
+        loss against the ground truth target source. 
+        </figcaption>
+    </figure>
+
+    <!-- <img src="assets/framework.pdf" alt="Model Architecture" class="arch-img"> -->
+    <!-- <br> -->
+    <h2>Timbre-Queried Source Separation</h2>
+    <!-- <h2>Sample 1</h2> -->
+    <div class="audio-row">
+        <div class="audio-col">
+            <p><strong>Input Mixture:</strong></p>
+            <audio controls src="audio/timbre/drums/drums_example1_mixture.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Drum Query:</strong></p>
+            <audio controls src="audio/timbre/drums/drums_example1_query.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Separated Drum:</strong></p>
+            <audio controls src="audio/timbre/drums/drums_example1_predicted.wav"></audio>
+        </div>
+    </div>
+    
+    <!-- <h2>Sample 2</h2> -->
+    <div class="audio-row">
+        <div class="audio-col">
+            <p><strong>Input Mixture:</strong></p>
+            <audio controls src="audio/timbre/bass/2/mixture_24.wav"></audio>
+        </div>
+        <div class="audio-col"> 
+            <p><strong>Bass Query:</strong></p>
+            <audio controls src="audio/timbre/bass/2/query_24.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Separated Bass:</strong></p>
+            <audio controls src="audio/timbre/bass/2/pred_24.wav"></audio>
+        </div>
+    </div>
+
+    <!-- <h2>Sample 3</h2> -->
+    <div class="audio-row">
+        <div class="audio-col">
+            <p><strong>Input Mixture:</strong></p>
+            <audio controls src="audio/timbre/guitar/guitar_example2/guitar_example2_mixture.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Guitar Query:</strong></p>
+            <audio controls src="audio/timbre/guitar/guitar_example2/guitar_example2_query.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Separated Guitar:</strong></p>
+            <audio controls src="audio/timbre/guitar/guitar_example2/guitar_example2_predicted.wav"></audio>
+        </div>
+    </div>
+
+    <!-- <h2>Sample 4</h2> -->
+    <div class="audio-row">
+        <div class="audio-col">
+            <p><strong>Input Mixture:</strong></p>
+            <audio controls src="audio/timbre/piano/piano_example1_mixture.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Piano Query:</strong></p>
+            <audio controls src="audio/timbre/piano/piano_example1_query.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Separated Piano:</strong></p>
+            <audio controls src="audio/timbre/piano/piano_example1_predicted.wav"></audio>
+        </div>
+    </div>
+
+    <!-- <h2>Sample 5</h2> -->
+    <div class="audio-row">
+        <div class="audio-col">
+            <p><strong>Input Mixture:</strong></p>
+            <audio controls src="audio/timbre/alto_sax/mixture_175.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Saxophone Query:</strong></p>
+            <audio controls src="audio/timbre/alto_sax/query_175.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Separated Saxophone:</strong></p>
+            <audio controls src="audio/timbre/alto_sax/pred_175.wav"></audio>
+        </div>
+    </div>
+
+    <h2>Melody-Queried Source Separation</h2>
+    <!-- <h2>Sample 1</h2> -->
+    <div class="audio-row">
+        <div class="audio-col">
+            <p><strong>Input Mixture:</strong></p>
+            <audio controls src="audio/melody/bass_1/mixture_66_28.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Melody Query:</strong></p>
+            <audio controls src="audio/melody/bass_1/query_66_28.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Separated Bass:</strong></p>
+            <audio controls src="audio/melody/bass_1/pred_66_28.wav"></audio>
+        </div>
+    </div>
+    <!-- <h2>Sample 2</h2> -->
+    <div class="audio-row">
+        <div class="audio-col">
+            <p><strong>Input Mixture:</strong></p>
+            <audio controls src="audio/melody/guitar_1/mixture_64_24.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Melody Query:</strong></p>
+            <audio controls src="audio/melody/guitar_1/query_64_24.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Separated Guitar:</strong></p>
+            <audio controls src="audio/melody/guitar_1/pred_64_24.wav"></audio>
+        </div>
+    </div>
+    <!-- <h2>Sample 3</h2> -->
+    <div class="audio-row">
+        <div class="audio-col">
+            <p><strong>Input Mixture:</strong></p>
+            <audio controls src="audio/melody/piano_1/mixture_104_0.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Melody Query:</strong></p>
+            <audio controls src="audio/melody/piano_1/query_104_0.wav"></audio>
+        </div>
+        <div class="audio-col">
+            <p><strong>Separated Piano:</strong></p>
+            <audio controls src="audio/melody/piano_1/pred_104_0.wav"></audio>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Nour Abdelmoneim – <a href="https://github.com/your-repo">GitHub</a></p>
+    </footer>
+</body>
+</html>

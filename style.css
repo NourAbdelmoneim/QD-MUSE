@@ -1,0 +1,44 @@
+body {
+    font-family: sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+    line-height: 1.6;
+}
+.audio-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.audio-col {
+    flex: 1;
+    min-width: 200px;
+}
+audio {
+    width: 100%;
+    margin-bottom: 1em;
+}
+footer {
+    margin-top: 4em;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.arch-figure {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+.arch-img {
+    width: 100%;
+    /* border: 1px solid #ddd;
+    border-radius: 8px; */
+}
+
+.arch-figure figcaption {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0.5rem;
+}
