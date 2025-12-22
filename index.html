@@ -9,7 +9,6 @@
     <h1>QD-MUSE: A Query-Driven Diffusion Model for Unconstrained Music Separation</h1>
     <p><i> Nour Abdelmoneim, Keith Ross, Gus Xia </i></p>
     <p><strong>Abstract:</strong> Music source separation (MSS) aims to isolate individual instruments from complex musical mixtures and is essential for tasks such as remixing, transcription, and audio analysis. Traditional approaches typically rely on separating a fixed set of stems using deterministic masking methods, limiting their ability to generalize to real-world mixtures with diverse instruments. In this paper, we propose QD-MUSE, a query-driven diffusion model that enables unconstrained music source separation guided by user-provided queries. By unifying timbre and melody queries within a single diffusion-based generative framework and leveraging self-supervised audio representations, our model flexibly extracts sources from arbitrary instrument combinations without relying on predefined categories. We validate QD-MUSE on the Slakh2100 dataset, demonstrating its ability to achieve high separation quality across a wide range of instruments, marking a step toward general-purpose, user-guided MSS.</p>
-
     <figure class="arch-figure">
         <img src="assets/framework.pdf" alt="Model Architecture" class="arch-img">
         <figcaption>Figure 1: QD-MUSE Architecture. The model receives a noisy source input and predicts a denoised
@@ -148,8 +147,31 @@
         </div>
     </div>
 
+    <h2>Query Representation for Timbre and Melody-Queried Separation</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <figure style="flex: 1; min-width: 250px; max-width: 48%; box-sizing: border-box;" class="arch-figure">
+            <img src="assets/results_compare_timbre_mert_hubert.pdf" alt="Timbre Results" style="width: 100%; max-width: 100%;">
+            <figcaption style="text-align: center;">Figure 2: Performance of QD-MUSE trained for timbre-queried separation with different query representations (MERT vs HuBERT). HuBERT (in dark blue) yields better performance for timbre-queried separation than MERT (in light blue). </figcaption>
+        </figure>
+
+        <figure style="flex: 1; min-width: 250px; max-width: 48%; box-sizing: border-box;" class="arch-figure">
+            <img src="assets/results_melody_s.pdf" alt="Melody Results" style="width: 100%; max-width: 100%;">
+            <figcaption style="text-align: center;">Figure 3: Performance of QD-MUSE trained for melody-queried separation with different query representations (MERT vs HuBERT). MERT (in green) yields better performance for melody-queried separation than HuBERT (in red)</figcaption>
+        </figure>
+    </div>
+
+    <h2>Timbre-Queried Separation</h2>
+    <p> Results from 3 separate evaluation runs of the timbre-queried separation QD-MUSE model with HuBERT encoding.</p>
+    <figure class="arch-figure">
+        <img src="assets/results_hubert_3runs.pdf" alt="Ablation Study" class="arch-img" style="max-width: 550px; width: 100%; display: block; margin: 1rem auto;">
+        <figcaption>Figure 4: Timbre-queried separation performance with 95% confidence intervals.</figcaption>
+    </figure>
+
+    <h2>Perceptual Evaluation</h2>
+    <p>Survey design & results will be included here</p>
+
     <footer>
-        <p>© 2025 Nour Abdelmoneim – <a href="https://github.com/your-repo">GitHub</a></p>
+        <p>© 2025 Nour Abdelmoneim – <a href="https://github.com/NourAbdelmoneim/QD-MUSE">GitHub</a></p>
     </footer>
 </body>
 </html>

@@ -42,3 +42,9 @@ footer {
     color: #555;
     margin-top: 0.5rem;
 }
+
+@media (max-width: 600px) {
+  figure {
+    max-width: 90% !important;
+  }
+}
